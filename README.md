@@ -1,0 +1,41 @@
+# AERA Motor Copilot
+
+AERA is an industrial AI copilot. The motor and HMI exist to demonstrate it.
+
+They share **one real-time state**:
+
+```
+MOTOR SIMULATOR  →  SHARED STATE / EVENT BUS  →  HMI
+                                          ↘
+                                           AERA
+                                           observe → detect → compare history
+                                           → assess risk → explain → recommend
+                                           → adapt if the operator cannot act
+```
+
+The operator sees **one screen**:
+
+- **Left:** live industrial motor + HMI (start/stop/reset, live parameters)
+- **Right:** AERA live copilot, event log, and historical cases
+
+AERA does not alarm on every blip. It decides **which deviations deserve attention** using live data, rate of change, and what happened last time on this motor.
+
+## Run
+
+```bash
+./scripts/dev.sh
+```
+
+UI: http://127.0.0.1:3001  
+API: http://127.0.0.1:8001/docs
+
+Copy `.env.example` to `.env` if you want an optional LLM key. The copilot works without it.
+
+## Demo
+
+1. Motor is running. AERA shows **NORMAL**.
+2. On the HMI, raise **LOAD**, then raise **VIB** toward 7 mm/s (or tap **Bearing**).
+3. AERA moves to **HIGH RISK**, compares with 8 similar historical cases, and recommends inspecting bearing alignment.
+4. Click **NOT POSSIBLE** or type `I cannot stop the motor right now.`
+5. AERA gives an **alternative action** (reduce load, keep monitoring, inspect at the next safe stop).
+6. Open **EVENTS** and **HISTORY** on the AERA panel — the motor and HMI stay visible.
