@@ -48,7 +48,6 @@ app.add_middleware(
 
 app.include_router(router, prefix="/api")
 app.add_api_websocket_route("/ws/aera", ws_aera)
-mount_ui(app)
 
 
 @app.get("/health")
@@ -58,3 +57,6 @@ def root_health() -> dict:
         "service": "aera-motor-copilot",
         "motor_mode": motor_sim.mode,
     }
+
+
+mount_ui(app)
