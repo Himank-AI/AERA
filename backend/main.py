@@ -12,6 +12,7 @@ from api import hub, router, seed_baseline, sim_loop, ws_aera
 from config import settings
 from engine.pipeline import engine
 from engine.simulator import motor_sim
+from ui import mount_ui
 
 
 @asynccontextmanager
@@ -47,6 +48,7 @@ app.add_middleware(
 
 app.include_router(router, prefix="/api")
 app.add_api_websocket_route("/ws/aera", ws_aera)
+mount_ui(app)
 
 
 @app.get("/health")

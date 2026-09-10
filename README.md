@@ -31,6 +31,19 @@ API: http://127.0.0.1:8001/docs
 
 Copy `.env.example` to `.env` if you want an optional LLM key. The copilot works without it.
 
+## Deploy
+
+Production serves the UI, `/api`, and `/ws/aera` from one process.
+
+```bash
+docker build -t aera .
+docker run -p 8001:8001 aera
+```
+
+Then open http://localhost:8001
+
+`Dockerfile`, `fly.toml`, and `render.yaml` are in the repo for Fly.io or Render.
+
 ## Demo
 
 1. Motor is running. AERA shows **NORMAL**.

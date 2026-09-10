@@ -1,0 +1,14 @@
+.git
+.venv
+__pycache__
+**/*.pyc
+.pytest_cache
+data
+.env
+.env.local
+frontend/node_modules
+frontend/.next
+frontend/out
+**/.DS_Store
+*.log
+agent-transcripts

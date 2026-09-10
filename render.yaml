@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: aera
+    runtime: docker
+    healthCheckPath: /health
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"

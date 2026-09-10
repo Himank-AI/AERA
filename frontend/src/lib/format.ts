@@ -29,7 +29,7 @@ export const UNITS: Record<string, string> = {
 
 export type AttentionLabel = "NORMAL" | "ATTENTION" | "HIGH RISK" | "CRITICAL" | "UNKNOWN";
 
-export function attentionLabel(level?: string): AttentionLabel | "ALERT" | "RESOLVED" {
+export function attentionLabel(level?: string): AttentionLabel {
   switch ((level || "").toUpperCase()) {
     case "NORMAL":
     case "STABLE":

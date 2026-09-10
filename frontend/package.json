@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --port 3001",
-    "build": "next build",
+    "build": "AERA_STATIC=1 next build",
     "start": "next start --port 3001"
   },
   "dependencies": {
