@@ -20,6 +20,12 @@ The operator sees **one screen**:
 
 AERA does not alarm on every blip. It decides **which deviations deserve attention** using live data, rate of change, and what happened last time on this motor.
 
+## Live
+
+https://aera-ld9s.onrender.com
+
+The free Render instance sleeps after idle time, so the first load can take about a minute.
+
 ## Run
 
 ```bash

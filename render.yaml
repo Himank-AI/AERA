@@ -2,8 +2,11 @@ services:
   - type: web
     name: aera
     runtime: docker
+    plan: free
+    region: oregon
     healthCheckPath: /health
     dockerfilePath: ./Dockerfile
+    dockerContext: .
     envVars:
       - key: PYTHONUNBUFFERED
         value: "1"
